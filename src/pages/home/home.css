@@ -1,0 +1,28 @@
+.home-container {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    font-family: var(--font-family);
+}
+
+.chat-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    background-color: rgb(235, 255, 237);
+    padding: 5px 0 5px 0;
+     
+}
+
+.messages-container{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    overflow-y: auto; 
+    width: 100%;
+}
+
