@@ -1,10 +1,10 @@
 import React from 'react'
 import './message.css'
 
-const Message = ({content, user}) => {
+const Message = ({content, role}) => {
   return (
     <div className='message-container'>
-        <div className={user ? 'user-style' : 'ia-style'}>
+        <div className={ (role === 'user') ? 'user-style' : 'ia-style'}>
             <div><p>{content}</p></div>
         </div>
         

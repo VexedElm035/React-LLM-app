@@ -6,23 +6,35 @@ import { Message } from './../../components/index';
 const Home = () => {
   const [textMessage, setText] = useState('');
   
-  const messages = ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea corporis inventore ipsa, blanditiis laudantium quia non cupiditate iure hic porro iste doloremque, est error eveniet aspernatur corrupti possimus commodi tempore.", "como estas", "adios"];
   const [messagesList, setMessageList] = useState([]);
   
-  const sendMessage = () => {
+  const sendMessage = async () => {
     setMessageList([
       ...messagesList,
       {
         content: textMessage,
-        user: true
-      },
-      {
-        //receiveMessage();
-        content: messages[0],
-        user: false
+        role: 'user'
       }
     ]);
     
+    try {
+      const response = await fetch('http://localhost:8080/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ role: 'user', content: textMessage })
+      });
+
+      const data = await response.json();
+
+      setMessageList(prev => [
+        ...prev,
+        { content: data.response.content, role: data.response.role}
+      ])
+
+    } catch (error){
+      console.error("Error sending message:", error);
+    }
+
     setText('');
 
   };
@@ -35,7 +47,7 @@ const Home = () => {
             <Message 
               key={index}
               content={message.content}
-              user={message.user}
+              role={message.role}
             />
           ))}
           </div>
