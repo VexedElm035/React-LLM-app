@@ -4,6 +4,11 @@
 }
 
 .user-style{
+
+    white-space: normal;
+    overflow: visible;
+    word-wrap: break-word;
+    
     display: flex;
     justify-content: flex-end;
     
