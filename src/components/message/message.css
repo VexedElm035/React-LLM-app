@@ -5,12 +5,13 @@
 
 .user-style{
 
-    white-space: normal;
-    overflow: visible;
-    word-wrap: break-word;
+    /* white-space: normal; */
+    /* overflow: visible;*/
+    word-wrap: break-word; 
     
     display: flex;
     justify-content: flex-end;
+    white-space: pre-wrap;
     
     div{
         border-radius: 8px;
