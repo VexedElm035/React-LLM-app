@@ -1,38 +1,178 @@
-.message-container {
-    width: 100%;
-    padding: 10px;
-    transition: opacity 2s linear;
+/* Estilos base para mensajes */
+.message {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 80%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.message-box{
-    display: flex;
-    
-    div{
-        border-radius: 8px;
-        padding: 15px;
-        width: 220px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        
-    }
+.message.user {
+  background-color: #fff;
+  margin-left: auto;
+  text-align: right;
 }
 
-.user-style{
-    /* white-space: normal; */
-    /* overflow: visible;*/
-    white-space: pre-wrap;
-    word-wrap: break-word; 
-    
-    justify-content: flex-end;
-    div{
-        background-color: #ffffff;
-        color: black;
-    }
+.message.assistant {
+  color: white;
+  background-color: #0d8200;
+  margin-right: auto;
 }
 
-.ia-style{
-    justify-content: flex-start;
-    div{
-        background-color: #0d8200;
-        color: white;
-    }
+.message-content {
+  line-height: 1.6;
+  font-family: var(--font-family);
+}
+
+/* Estilos para bloques de código */
+.code-block {
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #052e00;
+  border: 1px solid #333;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #052800;
+  border-bottom: 1px solid #0a4800;
+}
+
+.code-language {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.copy-button {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+  background-color: #404040;
+  color: #fff;
+}
+
+.code-content {
+  padding: 1rem;
+  margin: 0;
+  overflow-x: auto;
+  background-color: #052e00;
+}
+
+.code-content code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  color: #d4d4d4;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+/* Estilos para código inline */
+.inline-code {
+  background-color: #052e00a8;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  color: #15b200;
+  border: 1px solid #e1e1e1;
+}
+
+.message.user .inline-code {
+  background-color: #e8f4fd;
+  border-color: #b3d9ff;
+}
+
+/* Estilos para texto formateado */
+strong {
+  font-weight: 600;
+  color: #333;
+}
+
+.message.user strong {
+  color: #1976d2;
+}
+
+/* Indicador de typing */
+.typing-indicator {
+  animation: blink 1s infinite;
+  font-weight: bold;
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .message {
+    max-width: 95%;
+  }
+  
+  .code-content {
+    font-size: 0.8rem;
+  }
+}
+
+/* Syntax highlighting básico */
+.language-javascript .code-content code,
+.language-js .code-content code {
+  color: #f8f8f2;
+}
+
+.language-python .code-content code {
+  color: #f8f8f2;
+}
+
+.language-c .code-content code,
+.language-cpp .code-content code {
+  color: #f8f8f2;
+}
+
+.language-html .code-content code {
+  color: #f8f8f2;
+}
+
+.language-css .code-content code {
+  color: #f8f8f2;
+}
+
+/* Mejorar el contraste para mejor legibilidad */
+.code-content {
+  color: #f8f8f2;
+}
+
+/* Scrollbar personalizada para bloques de código */
+.code-content::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-content::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+.code-content::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.code-content::-webkit-scrollbar-thumb:hover {
+  background: #777;
 }

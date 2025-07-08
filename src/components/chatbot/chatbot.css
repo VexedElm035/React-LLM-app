@@ -15,6 +15,7 @@
     height: 400px;
     overflow-y: auto; 
     width: 100%;
+    padding: 0px 20px;
 }
 
 .welcome-container{
