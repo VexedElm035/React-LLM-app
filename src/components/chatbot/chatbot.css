@@ -9,6 +9,17 @@
     padding: 5px 0 5px 0;
 }
 
+.chat-header {
+    
+    background-color: rgba(255, 255, 255, 0.25);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 10px;
+    position: relative;
+}
+
 .messages-container{
     display: flex;
     flex-direction: column;
@@ -33,8 +44,8 @@
     max-height: 100px;
     margin: 5px 0;
     padding: 10px 15px;
-    background-color: rgb(243, 243, 243);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--white-color);
+    border: 1px solid var(--gray-color);
 }
 
 .input-box, .tools-container{
@@ -79,14 +90,12 @@
         justify-items: center;
         background: transparent;
         border: none;
-        
         height: fit-content;
-        
     }
 
     .dis-button{
         svg{
-            stroke: rgb(190, 190, 190);
+            stroke: var(--gray-color);
         }
     }
 
@@ -94,7 +103,7 @@
         cursor: pointer;
         svg{   
             transition: all 0.2s ease-in-out; 
-            stroke: #009688;
+            stroke: var(--primary-color);
         }
     }
 
@@ -102,7 +111,7 @@
         
         svg{    
             transition: all 0.2s ease-in-out;
-            stroke: #00645a;
+             stroke: color-mix(in srgb, var(--primary-color), var(--black-color) 20%);
             width: 22x;
             height: 22px;
         }
@@ -113,4 +122,48 @@
     margin-top: 15px;
     justify-content: space-between;
     font-size: 14px;
+}
+
+.close-button{
+    background-color: transparent;
+    border-radius: 100%;
+    object-fit: cover; 
+    color: var(--primary-color);
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: ease-in-out 0.4s;
+    overflow: hidden;
+  }
+
+  .close-button::before{
+    content : "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: var(--primary-color);
+    transform: scale(0);
+    transition: all 0.5s;
+  }
+
+  .close-button:hover::before{
+    transform: scale(1);
+  }
+
+  .close-button:hover{
+    color: var(--white-color);
+  }
+
+.menu-container{
+    top: 10px;
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    background-color: var(--secondary-color);
 }

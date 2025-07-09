@@ -6,11 +6,11 @@
 
 .message-box{
     display: flex;
-    
     div{
         border-radius: 8px;
         padding: 15px;
-        width: 220px;
+        max-width: 220px;
+        min-height: 49.200px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         
     }
@@ -24,15 +24,15 @@
     
     justify-content: flex-end;
     div{
-        background-color: #ffffff;
-        color: black;
+        background-color: var(--secondary-color);
+        color: var(--black-color);
     }
 }
 
 .ia-style{
     justify-content: flex-start;
     div{
-        background-color: #0d8200;
-        color: white;
+        background-color: var(--primary-color);
+        color: var(--white-color);
     }
 }

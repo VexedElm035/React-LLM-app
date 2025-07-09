@@ -4,10 +4,13 @@ import { useState, useEffect, useRef} from 'react';
 import { Message } from './../index';
 
 
-const Chatbot = () => {
+const Chatbot = ({isActive}) => {
   
   const [textMessage, setText] = useState('');
   const [messagesList, setMessageList] = useState([]);
+  const [menuDrop, setMenuDrop] = useState(false);
+
+
 
   const bottomRef = useRef(null);
   const enterFlagRef = useRef(0);
@@ -56,8 +59,26 @@ const Chatbot = () => {
     }
 
   };
+
+  const toogleMenu = () => {
+    setMenuDrop(prev => (prev === false ? true : false));
+  }
+
   return (
       <div className='chat-container'>
+        
+        <div className='chat-header'>
+          <button className='close-button' onClick={toogleMenu}> = </button>
+          <button className='close-button' onClick={isActive}> X </button>
+          {menuDrop && (
+            <div className='menu-container'>
+              <button onClick={toogleMenu}> = </button>
+              <button> Limpiar Chat</button>
+
+            </div> 
+          )}
+        </div>
+
         <div className="messages-container">
 
            {messagesList.length === 0 && (
